@@ -1,4 +1,3 @@
-let modules = require('./modules');
+let import_data = require('./modules');
 
-modules.info('Hello world');
-
+console.log(import_data);

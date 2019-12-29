@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-30d",
+  "version": "1.0.0",
+  "description": "sample nodejs project built in 30 days.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/f107110126/nodejs-30d.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Andy.Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/f107110126/nodejs-30d/issues"
+  },
+  "homepage": "https://github.com/f107110126/nodejs-30d#readme"
+}

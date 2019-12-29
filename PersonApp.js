@@ -1,4 +1,5 @@
-let Person = require('./Person');
+let modules = require('./modules');
+let Person = modules.Person;
 let someone = new Person('Andy', 'Chen');
 
 console.log({

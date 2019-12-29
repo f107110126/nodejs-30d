@@ -1,2 +1,3 @@
-let msg = require('./Message');
+let modules = require('./modules');
+let msg = modules.Message;
 console.log(msg);
