@@ -41,6 +41,11 @@ client.connect(function (error, client) {
                 else console.log('response: ', response);
             }
         );
+
+        collection.find().toArray(function (error, response) {
+            if (error) console.log(error);
+            else console.log('find all response: ', response);
+        });
     });
 
     client.close(); // disconnect
