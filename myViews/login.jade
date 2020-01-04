@@ -1,0 +1,12 @@
+extends ./layout
+
+block page-header
+    h1.mt-5 Login
+
+block content
+    form(method='post', action='/cookie/post')
+        | First Name: 
+        input(type='text', name='firstName', required='')
+        |   Last Name: 
+        input(type='text', name='lastName', required='')
+        button(type='submit') Login
