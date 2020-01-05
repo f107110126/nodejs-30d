@@ -1,4 +1,5 @@
 let MongoClient = require('mongodb').MongoClient;
+const mongoURL = require('./mongoURL');
 
 // connect to the db with authorize
 let user = encodeURIComponent('nodejs');
@@ -6,6 +7,13 @@ let password = encodeURIComponent('nodejs@1234');
 let authMechanism = 'DEFAULT';
 let mongodbServer = '163.18.62.46:27017/nodejs';
 let url = `mongodb://${user}:${password}@${mongodbServer}?authMechanism=${authMechanism}`;
+let mongoConfig = {
+    host: '163.18.62.46',
+    user: 'nodejs',
+    password: 'nodejs@1234',
+    database: 'nodejs'
+}
+url = mongoURL(mongoConfig);
 let client = new MongoClient(url, { useUnifiedTopology: true });
 
 client.connect(function (error, client) {
@@ -30,7 +38,8 @@ client.connect(function (error, client) {
                     return;
                 }
                 // else console.log('response: ', response); // used for debug
-            });
+            }
+        );
 
         collection.deleteMany(
             { id: 2 },
@@ -40,7 +49,7 @@ client.connect(function (error, client) {
                 }
                 else console.log('response: ', response);
             }
-        )
+        );
     });
 
     client.close(); // disconnect

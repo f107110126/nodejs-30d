@@ -7,9 +7,11 @@ block content
     p
         | hello 
         = member
-        |, 
+        |, you have logged in 
+        = time
+        | times.
         if logstatus
-            a(href='cookie/logout') Logout
+            a(href='session/logout') Logout
         else
-            a(href='cookie/login') Login
+            a(href='session/login') Login
         |.

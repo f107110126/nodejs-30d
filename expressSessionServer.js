@@ -1,6 +1,5 @@
 const express = require('express');
 const session = require('express-session');
-const mongoURL = require('./mongoURL');
 const MongoStore = require('connect-mongo')(session);
 let app = express();
 
@@ -9,15 +8,6 @@ let password = encodeURIComponent('nodejs@1234');
 let authMechanism = 'DEFAULT';
 let mongodbServer = '163.18.62.46:27017/nodejs';
 let url = `mongodb://${user}:${password}@${mongodbServer}?authMechanism=${authMechanism}`;
-console.log(url);
-let mongoConfig = {
-    host: '163.18.62.46', // required
-    user: 'nodejs',
-    password: 'nodejs@1234',
-    database: 'nodejs' // required
-};
-url = mongoURL(mongoConfig);
-console.log(url);
 let mongoOptions = { url };
 
 app.use(session({

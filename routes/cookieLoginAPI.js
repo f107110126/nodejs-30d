@@ -12,7 +12,7 @@ loginAPI.get('/', function (request, response) {
         isLogin = true;
     }
 
-    response.render('index', {
+    response.render('cookieIndex', {
         title: 'Express',
         member: name,
         logstatus: isLogin
@@ -23,9 +23,9 @@ loginAPI.get('/login', function (request, response) {
     response.render('login');
 });
 
-loginAPI.post('/post', function (request, response) {
+loginAPI.post('/login', function (request, response) {
     console.log(request.body);
-    if (request.body.firstName === '' || request.body.lastName === '') {
+    if (!Boolean(request.body.firstName) || !Boolean(request.body.lastName)) {
         return response.redirect('/cookie/login');
     } else {
         response.cookie(

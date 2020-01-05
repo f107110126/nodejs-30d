@@ -4,7 +4,7 @@ let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
 // loading routing file
-let routerCookie = require('./routes/loginAPI');
+let routerCookie = require('./routes/cookieLoginAPI');
 let app = express();
 
 // set view engine

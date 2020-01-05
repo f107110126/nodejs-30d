@@ -1,0 +1,15 @@
+extends ./layout
+
+block page-header
+    h1.mt-5= title
+
+block content
+    p
+        | hello 
+        = member
+        |, please 
+        if logstatus
+            a(href='cookie/logout') Logout
+        else
+            a(href='cookie/login') Login
+        |.
