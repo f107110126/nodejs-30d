@@ -1,5 +1,5 @@
 let MongoClient = require('mongodb').MongoClient;
-const mongoURL = require('./mongoURL');
+const mongoURL = require('./modules/mongoURL');
 
 // connect to the db with authorize
 let user = encodeURIComponent('nodejs');

@@ -1,6 +1,6 @@
 const express = require('express');
 const session = require('express-session');
-const mongoURL = require('./mongoURL');
+const mongoURL = require('./modules/mongoURL');
 const MongoStore = require('connect-mongo')(session);
 let app = express();
 
