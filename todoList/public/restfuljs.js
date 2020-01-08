@@ -1,9 +1,14 @@
-let requestData = {};
+if (typeof window.requestData === 'undefined') requestData = {};
+if (typeof window.baseUrl === 'undefined') {
+    baseUrl = $('meta[name="baseUrl"]').attr('content');
+    if (typeof baseUrl === 'undefined') baseUrl = '/';
+    else baseUrl += '/';
+}
 
 $('#plus').on('click', function () {
     requestData = { momsg: $('#MsgTB').val() };
     $.ajax({
-        url: '/restful/todo',
+        url: baseUrl,
         type: 'post',
         data: requestData,
         success: function (response) {
@@ -14,12 +19,30 @@ $('#plus').on('click', function () {
 });
 
 $('#search').on('click', function () {
-    requestData = { momsg: $('#MsgTB').val() };
+    let term = $('#MsgTB').val();
+    if (term) {
+        requestData = { momsg: $('#MsgTB').val() };
+        $.ajax({
+            url: baseUrl + requestData.momsg,
+            type: 'get',
+            success: function (response) {
+                $('#itemset').html(response);
+            }
+        });
+    }
+});
+
+$('#myModal #saveitem').on('click', function () {
+    let postData = $('#myModal').find($('#message-text')).val();
+    requestData.momsg = postData;
     $.ajax({
-        url: '/restful/todo/' + requestData.momsg,
-        type: 'get',
+        url: baseUrl + requestData.moid,
+        type: 'put',
+        data: requestData,
         success: function (response) {
-            $('#itemset').html(response);
+            let oneset = '#itemset div#record' + requestData.moid;
+            $(oneset).html(response);
         }
     });
+    $('#myModal').modal('hide');
 });

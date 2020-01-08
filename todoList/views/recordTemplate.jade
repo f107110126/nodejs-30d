@@ -1,0 +1,14 @@
+#itemset
+    for item in itemlist
+        - var foo= 'pencil' + item.id
+        - var fkk= 'remove' + item.id
+        - var rec= 'record' + item.id
+        div(id=rec)
+            button.btn.btn-outline-primary.btn-xs(id=foo,
+                data-target='#myModal', data-toggle='modal', type='button')
+                span.fas.fa-pencil-alt(aria-hidden='true')
+            button.btn.btn-outline-primary.btn-xs(id=fkk, type='button')
+                span.fas.fa-trash-alt(aria-hidden='true')
+            span(class=foo)=item.message
+            p
+script(defer, src='/restful/buttonlist.js')

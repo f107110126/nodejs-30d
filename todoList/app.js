@@ -1,15 +1,19 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const todoList = require('./controllers/todoList');
 let app = express();
-let dataset = require('./recordset');
+
+// configure app to use bodyParser()
+// this will let us get the data from Request
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
 
 // set view engine
 app.set('view engine', 'jade');
 // set view directory
 app.set('views', __dirname + '/views');
 
-app.get('/todo', function (request, response) {
-    response.render('restfulTemplate', { itemlist: dataset });
-});
+app.use('/todo', todoList);
 
 app.use('/restful', express.static(__dirname + '/public'));
 

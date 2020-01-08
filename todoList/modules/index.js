@@ -90,7 +90,7 @@ todoModule.lastId = async function () {
 }
 
 todoModule.create = async function (data, callback) {
-    let current = await this.lastId();
+    let current = (await this.lastId()) + 1;
     let dataset = [];
     data.map(function (item) {
         dataset.push({
