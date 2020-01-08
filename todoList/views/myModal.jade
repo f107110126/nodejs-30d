@@ -1,0 +1,15 @@
+#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModal', aria-hidden='true')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                h5#myModalLabel.modal-title Edit
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') X
+            .modal-body
+                form
+                    .form-group
+                        label(for='message-text') Message:
+                        textarea#message-text.form-control(row='3')
+            .modal-footer
+                button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                button#saveitem.btn.btn-primary(type='button') Save Changes

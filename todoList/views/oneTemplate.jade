@@ -1,0 +1,12 @@
+- var fjo= 'pencil' + oneid
+- var fjk= 'remove' + oneid
+
+button.btn.btn-outline-primary.btn-xs(type='button', id=fjo,
+    data-toggle='modal', data-target='#myModal')
+    span.fas.fa-pencil-alt(aria-hidden='true')
+button.btn.btn-outline-primary.btn-xs(type='button', id=fjk)
+    span.fas.fa-trash-alt(aria-hidden='true')
+span(class=fjo)= onemsg
+p
+
+script(src='/restful/buttonlist.js')
